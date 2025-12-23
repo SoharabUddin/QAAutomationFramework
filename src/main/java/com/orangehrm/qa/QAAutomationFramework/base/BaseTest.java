@@ -42,6 +42,10 @@ public class BaseTest {
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--incognito");
+			// ADD THIS LINE FOR JENKINS:
+		    options.addArguments("--headless=new"); 
+		    options.addArguments("--disable-gpu"); // Optional but recommended for Windows
+		    options.addArguments("--window-size=1920,1080"); // Ensures elements aren't hidden
 			driver = new ChromeDriver(options);
 		}
 		else if (browser.equalsIgnoreCase("firefox")) {
